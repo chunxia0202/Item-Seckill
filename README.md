@@ -14,20 +14,20 @@ Support the practice of commodity kill projects under high concurrency.
 
 #由于我租的服务器，很容易被恶意侵入，前端时间被植入了挖矿程序，导致我的网站崩溃
 #解决方案，网站的维护很重要
-入侵的主演原因：服务器端口号默认22，用户名root;很容易入侵,所以将服务器禁止root登陆，将端口号从22改为19707，用户名：自定义,密码：自定义，登陆之后再进入root用户：su root,输入root的密码：970307Xiami;
-之后将可以重启程序，要判断使用的几个组件是否启动：
-ps -ef | grep 命令
-开启的话是这个页面：
+#入侵的主演原因：服务器端口号默认22，用户名root;很容易入侵,所以将服务器禁止root登陆，将端口号从22改为19707，用户名：自定义,密码：自定义，登陆之后再进入root用户：su root,输入root的密码：970307Xiami;
+#之后将可以重启程序，要判断使用的几个组件是否启动：
+#ps -ef | grep 命令
+#开启的话是这个页面：
 ![image](https://user-images.githubusercontent.com/65805278/156489780-11b6d7ad-60c0-4102-afc9-d854d0f8428d.png)
-Nginx: 进入到/etc/nginx目录下输入nginx -s reload;
-启动nginx:   nginx -c /etc/nginx/nginx.conf
-若显示98端口被占用：输入fuser -k 80/tcp
-Redis: 启动redis:redis-server /etc/redis.conf
-RocketMQ:   先进入目录cd /root/rocketmq-all-4.8.0-bin-release
-			开启nameserver:       nohup sh ./bin/mqnamesrv -n localhost:9876 &
-			开启broker:           nohup sh ./bin/mqbroker -n localhost:9876 -c ./conf/broker.conf &
-关闭rocketmq:
-      关闭broker：          sh ./bin/mqshutdown broker
-			关闭nameserver:      sh ./bin/mqshutdown namesrv
-mysql：查看mysql的状态：systemctl status mysqld   开启mysql:  systemctl start mysqld
-都启动后再进入/root目录下执行sh seckill.sh可以正常访问；
+#Nginx: 进入到/etc/nginx目录下输入nginx -s reload;
+#启动nginx:   nginx -c /etc/nginx/nginx.conf
+#若显示98端口被占用：输入fuser -k 80/tcp
+#Redis: 启动redis:redis-server /etc/redis.conf
+#RocketMQ:   先进入目录cd /root/rocketmq-all-4.8.0-bin-release
+#			开启nameserver:       nohup sh ./bin/mqnamesrv -n localhost:9876 &
+#			开启broker:           nohup sh ./bin/mqbroker -n localhost:9876 -c ./conf/broker.conf &
+#关闭rocketmq:
+#      关闭broker：          sh ./bin/mqshutdown broker
+#      关闭nameserver:      sh ./bin/mqshutdown namesrv
+#mysql：查看mysql的状态：systemctl status mysqld   开启mysql:  systemctl start mysqld
+#都启动后再进入/root目录下执行sh seckill.sh可以正常访问；
